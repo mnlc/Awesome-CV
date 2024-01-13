@@ -314,6 +314,10 @@
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
 
+% Defines writer's X (ex-twitter) (optional)
+% Usage: \xtwitter{<X handle>}
+\newcommand*{\xtwitter}[1]{\def\@xtwitter{#1}}
+
 % Defines writer's Mastodon (optional)
 % Usage: \mastodon{<instance>}{<mastodon-nick>}
 \newcommand*{\mastodon}[2]{\def\@mastodoninstance{#1}\def\@mastodonname{#2}}
@@ -544,6 +548,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
+        }%
+      \ifthenelse{\isundefined{\@xtwitter}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://x.com/\@xtwitter}{\faXTwitter\acvHeaderIconSep\@xtwitter}%
         }%
       \ifthenelse{\isundefined{\@mastodonname}}%
         {}%
